@@ -24,13 +24,14 @@ public class EchoServer {
 
     public static void main(String[] args)
         throws Exception {
-        if (args.length != 1) {
-            System.err.println("Usage: " + EchoServer.class.getSimpleName() +
-                " <port>"
-            );
-            return;
-        }
-        int port = Integer.parseInt(args[0]);
+        //if (args.length != 1) {
+        //    System.err.println("Usage: " + EchoServer.class.getSimpleName() +
+        //        " <port>"
+        //    );
+        //    return;
+        //}
+        //int port = Integer.parseInt(args[0]);
+        int port = 11111;
         new EchoServer(port).start();
     }
 
@@ -51,7 +52,7 @@ public class EchoServer {
 
             ChannelFuture f = b.bind().sync();
             System.out.println(EchoServer.class.getName() +
-                " started and listening for connections on " + f.channel().localAddress());
+                               " started and listening for connections on " + f.channel().localAddress());
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();

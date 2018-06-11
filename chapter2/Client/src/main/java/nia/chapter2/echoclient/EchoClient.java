@@ -37,7 +37,7 @@ public class EchoClient {
                     public void initChannel(SocketChannel ch)
                         throws Exception {
                         ch.pipeline().addLast(
-                             new EchoClientHandler());
+                            new EchoClientHandler());
                     }
                 });
             ChannelFuture f = b.connect().sync();
@@ -48,16 +48,19 @@ public class EchoClient {
     }
 
     public static void main(String[] args)
-            throws Exception {
+        throws Exception {
         if (args.length != 2) {
             System.err.println("Usage: " + EchoClient.class.getSimpleName() +
-                    " <host> <port>"
+                               " <host> <port>"
             );
             return;
         }
 
-        final String host = args[0];
-        final int port = Integer.parseInt(args[1]);
+        //final String host = args[0];
+        //final int port = Integer.parseInt(args[1]);
+
+        final String host = "127.0.0.1";
+        final int port = 11111;
         new EchoClient(host, port).start();
     }
 }
